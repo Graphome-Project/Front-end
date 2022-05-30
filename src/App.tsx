@@ -1,5 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
+import Footer from './components/estaticos/footer/Footer'
+import Navbar from './components/estaticos/navbar/Navbar'
+import Home from './paginas/Home'
+import Login from './paginas/Login'
+import Sobre from './paginas/Sobre'
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -12,7 +16,7 @@ function App() {
     <Route path="/" element={<Login />} />
     <Route path="/login" element={<Login />} />
     <Route path="/home" element={<Home />} />
-    <Route path="/cadastro" element={<CadastroUsuario />} />
+    <Route path="/sobre" element={<Sobre />} />
     </Routes>
     </div>
     <Footer />
