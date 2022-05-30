@@ -1,0 +1,89 @@
+/* importando fonte */
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
+/* É o Grid maior por trás dos dois */
+.gridmaior {
+  background-image: url('https://i.imgur.com/fhxWLFt.png');
+  height: calc(100vh - 108px - 108px);
+  align-items: center;
+  justify-content: center;
+}
+
+/* Grid da box transparente com texto */
+.grid1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* box transparente */
+.box1 {
+  /*posicionamento */
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 309px;
+  /* coloração */
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 20px 0 #e9de6f;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px) !important;
+  border-radius: 10px;
+  border: 1px solid #e7e16c;
+  /* tamanho da box */
+  height: 400px;
+  /* alinhamento do texto */
+  text-align: center;
+}
+
+/* texto da box transparente */
+.texto {
+  color: #ffffff;
+  font-family: 'Amatic SC', cursive !important;
+  font-size: 40px !important;
+}
+
+/* segundo texto */
+.text2 {
+  color: #ffffff;
+  font-family: 'Amatic SC', cursive !important;
+  font-size: 21px !important;
+}
+
+/* Grid da imagem */
+.grid2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* botao */
+.butao {
+  margin-top: 32px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 20px 0 #e9de6f;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px) !important;
+  border-radius: 10px;
+  border: 1px solid #e7e16c;
+}
+
+/* Classe do botao cria pelo mui */
+.MuiButton-root {
+  color: #ffffff !important;
+  /* cor do texto do botao  */
+  font-family: 'Amatic SC', cursive !important;
+  font-size: 23px !important;
+}
+
+/* tirar sublinhado do botao logar */
+.text-decorator-none {
+  text-decoration: none;
+}
+
+/* deixando listas sem estilos padrao */
+.list-decorator-none {
+  list-style: none;
+}
