@@ -34,7 +34,7 @@ function Login() {
   }
   useEffect(() =>{
       if(token!= ''){
-          navigate('/Home')
+          navigate('/home')
       }
   },[token])
   async function logar(e:ChangeEvent<HTMLFormElement>){
