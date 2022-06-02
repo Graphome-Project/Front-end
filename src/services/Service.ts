@@ -6,9 +6,9 @@ export const api = axios.create({
 })
 
 //método do cadastro de usuário
-export const cadastroUsuario = async (url: any, dados: any, setDados: any) => {
+export const cadastroUsuario = async (url:any, dados:any, setDado:any) => {
   const resposta = await api.post(url, dados)
-  setDados(resposta.data)
+  setDado(resposta.data)
 }
 
 // método do login
