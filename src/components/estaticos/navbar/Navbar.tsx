@@ -41,7 +41,7 @@ function Navbar() {
                             </Typography>
                         </Box>
                         </Link>
-                        <Link to='/Cadastrar' className='text-decorator-none'> 
+                        <Link to='/cadastrar' className='text-decorator-none'> 
                         <Box mx={1} className= 'cursor'>
                             <Typography variant="h6" color="inherit">
                                 Cadastrar tema
