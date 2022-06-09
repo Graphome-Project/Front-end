@@ -21,7 +21,7 @@ function DeletarTemas() {
     const [temas, setTemas] = useState<Temas>()
 
     useEffect(() => {
-        if (token === '') {
+        if (token === '') { 
             navigate('/login')
         }
     }, [token])
@@ -35,21 +35,22 @@ function DeletarTemas() {
 
     async function findById(id: string) {
         await buscaId(`/temas/${id}`, setTemas, {
-            Headers: {
+            headers: {
                 'Authorization': token
             }
         })
 
     }
-    async function sim() {
+    function sim() {
         navigate('/temas')
 
         try {
-            await deleteId(`/temas/${id}`, {
-                Headers: {
+            
+            deleteId(`/temas/${id}`, {
+                headers: {
                     'Authorization': token
                 }
-            })
+            });
             alert('Tema deletado com sucesso')
         } catch (error) {
             alert('Erro ao deletar o Tema');
