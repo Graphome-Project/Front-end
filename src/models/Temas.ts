@@ -1,7 +1,7 @@
-interface Tema{
+interface Temas{
     id: number;
     nome:string;
     descricao: string;
 }
 
-export default Tema;
+export default Temas;

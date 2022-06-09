@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import Temas from '../../../models/Temas';
-import './ListaTema.css';
+import './ListaTemas.css';
 import {useNavigate} from 'react-router-dom';
 import { busca } from '../../../services/Service';
 import { useSelector } from 'react-redux';
@@ -25,7 +25,7 @@ function ListaTemas() {
 
 
   async function getTema(){
-    await busca("/tema", setTemas, {
+    await busca("/temas", setTemas, {
       headers: {
         'Authorization': token
       }
@@ -46,6 +46,9 @@ function ListaTemas() {
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
               Tema
+            </Typography>
+            <Typography variant="h5" component="h2">
+             {tema.nome}
             </Typography>
             <Typography variant="h5" component="h2">
              {tema.descricao}

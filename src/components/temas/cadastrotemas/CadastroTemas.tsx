@@ -1,13 +1,13 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Box, Button, Container, Grid, TextField, Typography } from '@material-ui/core'
 import { useNavigate, useParams } from 'react-router-dom'
-import './CadastroTema.css'
+import './CadastroTemas.css'
 import Temas from '../../../models/Temas';
 import { buscaId, post, put } from '../../../services/Service'
 import { useSelector } from 'react-redux'
 import { TokenState } from '../../../store/tokens/tokensReducer'
 // import { toast } from 'react-toastify'
-function CadastroTema() {
+function CadastroTemas() {
   let history = useNavigate()
 
   const { id } = useParams<{ id: string }>()
@@ -32,7 +32,7 @@ function CadastroTema() {
 
   //Criando função assícrona para buscar o id
   async function findById(id: string) {
-    await buscaId(`/tema/${id}`, setTema, {
+    await buscaId(`/temas/${id}`, setTema, {
       headers: {
         'Authorization': token
       }
@@ -62,7 +62,7 @@ function CadastroTema() {
     if (id !== undefined) {
       // TRY: Tenta executar a atualização
       try {
-        await put(`/tema`, tema, setTema, {
+        await put(`/temas`, tema, setTema, {
           headers: {
             'Authorization': token
           }
@@ -76,7 +76,7 @@ function CadastroTema() {
     } else { // Se o ID for indefinido, tente Cadastrar
       // TRY: Tenta executar o cadastro
       try {
-        await post(`/tema`, tema, setTema, {
+        await post(`/temas`, tema, setTema, {
           headers: {
             'Authorization': token
           }
@@ -92,7 +92,7 @@ function CadastroTema() {
 
   //Criando função de voltar para a pagina /temas independente se atualiza ou cria um tema novo
   function back() {
-    history('/tema')
+    history('/temas')
   }
 
   return (
@@ -102,6 +102,16 @@ function CadastroTema() {
         <Container maxWidth="sm" className='containerStyleTema' >
           <form onSubmit={onSubmit} className='formCadastroTema'>
             <Typography variant="h3" align="center" >Formulário de cadastro tema</Typography>
+            <TextField
+              value={tema.nome}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
+              id="nome"
+              label="nome"
+              variant="outlined"
+              name="nome"
+              margin="normal"
+              fullWidth
+            />
             <TextField
               value={tema.descricao}
               onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
@@ -122,4 +132,4 @@ function CadastroTema() {
   )
 }
 
-export default CadastroTema
+export default CadastroTemas

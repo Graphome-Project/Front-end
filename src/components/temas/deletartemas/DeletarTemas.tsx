@@ -5,10 +5,10 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import Temas from '../../../models/Temas';
 import { buscaId, deleteId } from '../../../services/Service';
-import './DeletarTema.css'
+import './DeletarTemas.css'
 
 
-function DeletarTema() {
+function DeletarTemas() {
 
     let navigate = useNavigate();
 
@@ -95,4 +95,4 @@ function DeletarTema() {
 
 
 }
-export default DeletarTema;
+export default DeletarTemas;
