@@ -11,7 +11,9 @@ import './Cadastro.css';
 function Cadastro() {
 
     let navigate = useNavigate();
+
     const [confirmarSenha, setConfirmarSenha] = useState<String>('')
+
     const [user, setUser] = useState<User>(
         {
             id: 0,
@@ -59,26 +61,37 @@ function Cadastro() {
         })
 
     }
+
+    // criando o calculo da idade para fazer a verificação
+    let dataAtual = new Date()
+    let nascimento = new Date(user.dataNascimento)
+    let idade = dataAtual.getFullYear() - nascimento.getFullYear()
+
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        if (confirmarSenha === user.senha && user.senha.length >= 8) {
+        if (idade >= 18) {
+            if (confirmarSenha === user.senha && user.senha.length >= 8) {
 
-            try {
-                await cadastroUsuario (`/usuarios/cadastrar`, user, setUserResult)
-                alert('Usuário cadastrado com sucesso')
+                try {
+                    await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+                    alert('Usuário cadastrado com sucesso')
 
-            } catch (error) {
-                console.log(`Error: ${error}`)
+                } catch (error) {
+                    console.log(`Error: ${error}`)
 
-                alert("Dados incorretos, por favor, verifique")
+                    alert("Dados incorretos, por favor, verifique")
 
+                }
+
+            } else {
+                alert('Por favor, verifique os dados.')
+                setUser({ ...user, senha: "" })
+                setConfirmarSenha("")
             }
-
         } else {
-            alert('Por favor, verifique os dados.')
-            setUser({ ...user, senha: "" })
-            setConfirmarSenha("")
+            alert(`Idade menor que 18 anos (${idade})`)
         }
+
     }
 
 
@@ -183,12 +196,12 @@ function Cadastro() {
 
 
                 <Box marginTop={2} textAlign='center'>
-        
-                        <Link to='/login' className="text-decorator-none">
-                            <Button type="submit" variant="outlined" className='botao-cancelar'>Cancelar</Button>
-                        </Link>
 
-                        <Button type="submit" variant="outlined" className='botao-confirmar'>Confirmar</Button>
+                    <Link to='/login' className="text-decorator-none">
+                        <Button type="submit" variant="outlined" className='botao-cancelar'>Cancelar</Button>
+                    </Link>
+
+                    <Button type="submit" variant="outlined" className='botao-confirmar'>Confirmar</Button>
 
                 </Box>
 
