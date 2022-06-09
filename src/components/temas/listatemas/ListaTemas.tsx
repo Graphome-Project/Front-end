@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
-import Tema from '../../../model/Tema';
+import Temas from '../../../models/Temas';
 import './ListaTema.css';
 import {useNavigate} from 'react-router-dom';
 import { busca } from '../../../services/Service';
@@ -10,7 +10,7 @@ import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function ListaTemas() {
     
-  const [temas, setTemas] = useState<Tema[]>([])
+  const [temas, setTemas] = useState<Temas[]>([])
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
   );
@@ -18,14 +18,14 @@ function ListaTemas() {
 
   useEffect(()=>{
     if(token == ''){
-      alert("VocÃª precisa estar logado")
+      alert("Você precisa estar logado")
       navigate("/login")
     }
   }, [token])
 
 
   async function getTema(){
-    await busca("/temas", setTemas, {
+    await busca("/tema", setTemas, {
       headers: {
         'Authorization': token
       }
