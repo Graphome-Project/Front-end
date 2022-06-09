@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import {Box, Card, CardActions, CardContent, Button, Typography} from '@material-ui/core';
-import './DeletarTema.css'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import Temas from '../../../models/Temas';
 import { buscaId, deleteId } from '../../../services/Service';
+import './DeletarTema.css'
 
 
 function DeletarTema() {
@@ -50,7 +50,7 @@ function DeletarTema() {
                     'Authorization': token
                 }
             })
-            alert('Tema deletado com sucesso!')
+            alert('Tema deletado com sucesso')
         } catch (error) {
             alert('Erro ao deletar o Tema');
         }
