@@ -8,7 +8,7 @@ interface Postagem {
     midia: string;
     data: string;
     curtir: number;
-    temas?: Temas | null
+    tema?: Temas | null
 
 }
 

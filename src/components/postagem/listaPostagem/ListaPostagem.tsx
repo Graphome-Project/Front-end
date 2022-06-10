@@ -7,7 +7,7 @@ import { TokenState } from '../../../store/tokens/tokensReducer';
 
 import Postagem from '../../../models/Postagem'
 import { busca } from '../../../services/Service'
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 import './ListaPostagem.css'
 
 function ListaPostagem() {
@@ -31,7 +31,7 @@ function ListaPostagem() {
         draggable: false,
         theme: "colored",
         progress: undefined,
-    });
+      });
       navigate("/login")
     }
   }, [token])
@@ -49,6 +49,7 @@ function ListaPostagem() {
   }, [posts.length])
 
   return (
+
     <>
       {posts.map(post => (
         <Box m={2} >
@@ -68,7 +69,7 @@ function ListaPostagem() {
               </Typography>
 
               <Typography variant="body2" component="p">
-                {post.temas?.descricao}
+                {post.tema?.descricao}
               </Typography>
 
             </CardContent>
