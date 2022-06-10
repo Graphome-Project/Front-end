@@ -14,6 +14,7 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import CadastroPostagem from './components/postagem/cadastroPostagem/CadastroPostagem'
 import DeletarPostagem from './components/postagem/deletarPostagem/DeletarPostagem'
+import ListaPostagem from './components/postagem/listaPostagem/ListaPostagem';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/temas" element={<ListaTemas />} />
+            <Route path="/postagem" element={<ListaPostagem />} />
             <Route path="/formularioTema" element={<CadastroTemas />} />
             <Route path="/formularioTema/:id" element={<CadastroTemas />} />
             <Route path="/deletarTema/:id" element={<DeletarTemas />} />
