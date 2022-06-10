@@ -7,7 +7,7 @@ interface Postagem{
     texto:string;
     midia:string;
     dados:string;
-    curtir:string;
+    curtir: number;
     usuario:string;
     temas?: Temas|null
 
