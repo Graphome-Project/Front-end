@@ -40,7 +40,7 @@ function DeletarPostagem() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/postagens/${id}`, setPosts, {
+        buscaId(`/postagem/${id}`, setPosts, {
             headers: {
               'Authorization': token
             }
@@ -48,8 +48,8 @@ function DeletarPostagem() {
         }
 
         function sim() {
-          navigate('/posts')
-            deleteId(`/postagens/${id}`, {
+          navigate('/postagem')
+            deleteId(`/postagem/${id}`, {
               headers: {
                 'Authorization': token
               }
@@ -67,7 +67,7 @@ function DeletarPostagem() {
           }
         
           function nao() {
-            navigate('/posts')
+            navigate('/postagem')
           }
   return (
     <>
