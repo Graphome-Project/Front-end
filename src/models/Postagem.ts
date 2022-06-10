@@ -1,15 +1,14 @@
 import Temas from "./Temas";
 
-interface Postagem{
+interface Postagem {
 
     id: number;
     titulo: string;
-    texto:string;
-    midia:string;
-    dados:string;
+    texto: string;
+    midia: string;
+    data: string;
     curtir: number;
-    usuario:string;
-    temas?: Temas|null
+    temas?: Temas | null
 
 }
 

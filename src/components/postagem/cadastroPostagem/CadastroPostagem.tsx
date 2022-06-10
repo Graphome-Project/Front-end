@@ -1,8 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
-import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText, Grid } from "@material-ui/core"
-
+import { Box, Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText, Grid } from "@material-ui/core"
 import { useNavigate, useParams } from 'react-router-dom';
-import Temas from '../../../models/Temas'
+import Temas from '../../../models/Temas';
 import Postagem from '../../../models/Postagem';
 import { busca, buscaId, post, put } from '../../../services/Service';
 import './CadastroPostagem.css'
@@ -10,7 +9,6 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify'
 function CadastroPost() {
-
   let navigate = useNavigate()
   const { id } = useParams<{ id: string }>()
   const [temas, setTemas] = useState<Temas[]>([])
@@ -36,19 +34,18 @@ function CadastroPost() {
 
   const [tema, setTema] = useState<Temas>({
     id: 0,
-    nome: "",
-    descricao: ""
+    descricao: '',
+    nome: ''
   })
 
   const [posts, setPosts] = useState<Postagem>({
     id: 0,
     titulo: "",
-    texto: "",
-    midia: "",
-    dados: "",
+    data: '',
+    texto: '',
     curtir: 0,
-    usuario: "",
-    temas: null
+    temas: null,
+    midia: ''
   })
 
   useEffect(() => {
@@ -56,7 +53,7 @@ function CadastroPost() {
       ...posts,
       temas: tema
     })
-  }, [temas])
+  }, [tema])
 
   async function getTemas() {
     await busca('/temas', setTemas, {
@@ -67,7 +64,7 @@ function CadastroPost() {
   }
 
   async function findPostagensById(id: string) {
-    await buscaId(`/postagens/${id}`, setPosts, {
+    await buscaId(`/postagem/${id}`, setPosts, {
       headers: {
         'Authorization': token
       }
@@ -93,7 +90,7 @@ function CadastroPost() {
 
     if (id !== undefined) {
       try {
-        await put(`/postagens`, posts, setPosts, {
+        await put(`/postagem`, posts, setPosts, {
           headers: {
             'Authorization': token
           }
@@ -124,7 +121,7 @@ function CadastroPost() {
       }
     } else {
       try {
-        await post(`/postagens`, posts, setPosts, {
+        await post(`/postagem`, posts, setPosts, {
           headers: {
             'Authorization': token
           }
@@ -160,7 +157,7 @@ function CadastroPost() {
 
 
   function back() {
-    navigate('/posts')
+    navigate('/postagem')
   }
 
 
@@ -169,7 +166,7 @@ function CadastroPost() {
       <Grid xs={12} className='GridBackCadastroPost'>
         <Container maxWidth="sm" className='containerStylePost'>
           <form className='formCadastroPost' onSubmit={onSubmit} >
-            <Typography variant="h3" align="center" >Formulário de criação de uma postPagem</Typography>
+            <Typography variant="h3" align="center" >Formulário de criação de uma postagem</Typography>
             <TextField value={posts.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
             <TextField value={posts.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
             <FormControl >
