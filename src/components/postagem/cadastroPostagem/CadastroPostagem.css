@@ -1,0 +1,25 @@
+.GridBackCadastroPost {
+  background-image: url('https://i.imgur.com/wXZMg1B.png');
+}
+
+.containerStylePost {
+  margin-top: 20px;
+  height: calc(100vh - 125px - 55px);
+}
+
+.formCadastroPost {
+  background: #e9ecef !important;
+  border-radius: 10px !important;
+  border: 2px solid #596275 !important;
+  padding: 25px !important;
+  width: 500px !important;
+}
+
+.buttonCadastroPost {
+  background: #181717 !important;
+  color: #ffffff !important;
+}
+
+.boxImage {
+  padding-left: 40px;
+}
