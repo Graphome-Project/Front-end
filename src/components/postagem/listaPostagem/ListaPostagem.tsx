@@ -73,9 +73,7 @@ function ListaPostagem() {
               </Typography>
 
             </CardContent>
-            <Typography variant="body2" component="p">
-              {post.data.split('-').reverse().join('-')}
-            </Typography>
+
             <CardActions>
               <Box display="flex" justifyContent="center" mb={1.5}>
 
