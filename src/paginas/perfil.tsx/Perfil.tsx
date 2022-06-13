@@ -3,15 +3,16 @@ import { Box } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import User from '../../../models/User'
-import { buscaId } from '../../../services/Service'
+import User from '../../models/User'
+import { buscaId } from '../../services/Service'
 
 import './Perfil.css'
-import { TokenState } from '../../../store/tokens/tokensReducer'
+import { TokenState } from '../../store/tokens/tokensReducer'
 
 function Perfil() {
 
-  let navigate = useNavigate()
+
+  let history = useNavigate()
 
   // Pega o ID guardado no Store
   const id = useSelector<TokenState, TokenState["id"]>(
@@ -29,21 +30,21 @@ function Perfil() {
     usuario: '',
     senha: '',
     foto: '',
-    bio: '',
+    bio: "",
     dataNascimento: '',
     tipo: ''
   })
 
   useEffect(() => {
-    if (token == "") {
+    if (token === "") {
       alert("Você precisa estar logado")
-      navigate("/login")
+      history("/login")
     }
   }, [token])
 
   // Métedo para pegar os dados de um Usuário especifico pelo ID
   async function findById(id: string) {
-    await buscaId(`/usuarios/${id}`, setUser, {
+    buscaId(`/usuarios/${id}`, setUser, {
       headers: {
         'Authorization': token
       }
@@ -56,31 +57,29 @@ function Perfil() {
     }
   }, [id])
 
-  console.log(id)
-
   return (
     <Box className='card-principal'>
       <Box className='card-container-imagem'>
         <img className='card-imagem'
-          src='https://i.imgur.com/uOqE6Lc.jpg'
-          alt={user.nome} />
+          src={user.foto}
+        />
       </Box>
 
       <Box className='card-container-info'>
         <Box>
-          <h1>NOME DO USUARIO</h1>
+          <h1>{user.nome}</h1>
           <hr />
         </Box>
       </Box>
 
-      <h4>Bio:</h4>
-      <p className='card-container-texto'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus maiores illum, omnis optio quisquam labore, autem dolor a quae maxime corporis ratione magni deserunt fugiat laboriosam blanditiis, officiis aperiam perferendis.
+      <h4 className='h4Nasc'>Data de nascimento</h4>
+      <p className='card-container-texto2'>
+        {user.dataNascimento.split("-").reverse().join("-")}
       </p>
 
-      <h4>Data de nascimento</h4>
-      <p className='card-container-texto2'>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni quos veritatis a ratione. Voluptate maiores atque veniam pariatur, doloribus quam corrupti quidem quia quasi modi sapiente natus ullam dolore adipisci.
+      <h4 className='h4Bio'>Bio:</h4>
+      <p className='card-container-texto'>
+        {user.bio}
       </p>
     </Box>
   )

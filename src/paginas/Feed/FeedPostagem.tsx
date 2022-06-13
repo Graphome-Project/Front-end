@@ -3,7 +3,7 @@ import React from 'react'
 import CadastroPostagem from '../../components/postagem/cadastroPostagem/CadastroPostagem'
 import ListaPostagem from '../../components/postagem/listaPostagem/ListaPostagem'
 import './FeedPostagem.css'
-import Perfil from './perfil.tsx/Perfil'
+import Perfil from '../perfil.tsx/Perfil'
 
 
 function FeedPostagem() {
@@ -19,9 +19,11 @@ function FeedPostagem() {
                     <a href="" className="BotaoTema">TEMA 06</a>
                 </Grid>
                 <Grid xs={8} className='gridPostagens'>
-                    <Box>
+
+                    <Box marginTop={2}>
                         <CadastroPostagem />
                     </Box>
+                    <h4 className='h4FeedPosts'>Feed de postagens</h4>
                     <ListaPostagem />
                 </Grid>
                 <Grid xs={3} className='gridPerfil'>
@@ -29,18 +31,6 @@ function FeedPostagem() {
                         <Perfil />
                     </Box>
                 </Grid>
-                {/* <div>
-                <div>
-                    <CadastroPost />
-                </div>
-                <div>
-                    <Perfil />
-                </div>
-            </div>
-            <div>
-                <div className='BlocoPerfil'></div>
-                <div className='BlocoBio'></div>
-            </div> */}
             </Grid>
         </>
     )

@@ -162,7 +162,7 @@ function CadastroPost() {
             <input type='text' name='midia' className='inputTitle' value={postagem.midia} placeholder='Link da Imagem' id='midia' onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} />
           </Box>
 
-          <textarea name="" id="" className='inputTextArea' cols={5} rows={5}></textarea>
+          <textarea placeholder='Texto da postagem' name="texto" id="texto" className='inputTextArea' cols={5} rows={5}></textarea>
         </Box>
         <FormControl >
           <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
@@ -183,7 +183,7 @@ function CadastroPost() {
           </Select>
           <FormHelperText>Escolha um tema para a postagem</FormHelperText>
           <Button type="submit" variant="contained" color="primary" className='BotaoForm'>
-            Finalizar
+            <span className="button-content"> Criar postagem</span>
           </Button>
         </FormControl>
       </form>
