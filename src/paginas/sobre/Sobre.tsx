@@ -1,11 +1,30 @@
 import React from 'react'
 import './Sobre.css'
-
-
 import { Grid, Box, Typography, Button } from '@material-ui/core'
-import Cards from './cards/Cards'
+import Cards from '../../components/cards/Cards'
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 
 function Sobre() {
+
+let history = useNavigate();
+
+function contatoEnviar(){
+
+    toast.success('Mensagem Enviada!', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "colored",
+
+      });
+    history('/home')
+}
 
     return (
 
@@ -121,14 +140,10 @@ function Sobre() {
 
                     <section className='sobre-contato-bloco4'>
                         <a href='#gh-sobre'>voltar para o começo da página</a>
-                        <Button variant="outlined" className="botao-contato"> ENVIAR </Button>
+                        <Button variant="outlined" className="botao-contato" onClick={contatoEnviar}> ENVIAR </Button>
                     </section>
 
                 </section>
-
-
-
-
 
             </main >
         </>
