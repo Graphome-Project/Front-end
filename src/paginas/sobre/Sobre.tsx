@@ -3,7 +3,7 @@ import './Sobre.css'
 
 
 import { Grid, Box, Typography, Button } from '@material-ui/core'
-import Cards from './cards/cards'
+import Cards from './cards/Cards'
 
 function Sobre() {
 
@@ -49,9 +49,9 @@ function Sobre() {
 
                 <section className='sobre-devs' id='sobre-devs'>
                     <h2 className='sobre-devs-titulo'>CONHEÇA OS DEVS</h2>
-                    <Cards/>
+                    <Cards />
 
-                   
+
                 </section>
 
                 <section className='sobre-contato' id='sobre-contato'>
