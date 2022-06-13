@@ -69,3 +69,22 @@
     margin-top: 50px;
     font-size: 18px;
 }
+
+.boxEditarPerfil {
+    background-color: #019393;
+    width: 318px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    margin-left: 80px;
+    border-radius: 15px;
+    padding: 5px 5px 0px 0px;
+}
+
+.botaoEditarPerfil {
+    background-color: #FF7F69 !important;
+    height: 40px;
+    border-radius: 10px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 15px !important;
+}

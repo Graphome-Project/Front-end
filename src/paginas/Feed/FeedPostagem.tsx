@@ -1,12 +1,19 @@
-import { Grid, Typography, Box } from '@material-ui/core'
+import { Grid, Typography, Box, Button } from '@material-ui/core'
 import React from 'react'
 import CadastroPostagem from '../../components/postagem/cadastroPostagem/CadastroPostagem'
 import ListaPostagem from '../../components/postagem/listaPostagem/ListaPostagem'
 import './FeedPostagem.css'
-import Perfil from '../perfil.tsx/Perfil'
+import Perfil from '../perfil/Perfil'
+import { useNavigate } from 'react-router-dom'
 
 
 function FeedPostagem() {
+    let navigate = useNavigate()
+
+    function edit() {
+        navigate('/atualizarusuario')
+    }
+
     return (
         <>
             <Grid container xs={12} className='gridContainer'>
@@ -29,6 +36,12 @@ function FeedPostagem() {
                 <Grid xs={3} className='gridPerfil'>
                     <Box className='boxPerfil'>
                         <Perfil />
+                    </Box>
+
+                    <Box className='boxEditarPerfil'>
+                        <Button onClick={edit} className='botaoEditarPerfil'>
+                            Editar perfil
+                        </Button>
                     </Box>
                 </Grid>
             </Grid>
