@@ -1,66 +1,43 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Button, Card, CardActions, CardContent, Typography } from '@material-ui/core'
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-
 import { Link, useNavigate } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
 import { TokenState } from '../../../store/tokens/tokensReducer';
 
 import Postagem from '../../../models/Postagem'
-import { busca, put } from '../../../services/Service'
+import { busca } from '../../../services/Service'
 import { toast } from 'react-toastify';
 import './ListaPostagem.css'
 
 function ListaPostagem() {
 
-  const [posts, setPosts] = useState<Postagem[]>([])
+  let navigate = useNavigate()
 
-  const [post, setPost] = useState<Postagem>({
-    id: 0,
-    titulo: "",
-    texto: "",
-    data: "",
-    curtir: 0,
-    tema: null,
-    midia: ''
-  })
+  const [posts, setPost] = useState<Postagem[]>([])
 
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
-  )
-
-  let navigate = useNavigate();
+  );
 
   useEffect(() => {
     if (token === "") {
-      toast.error('Você precisa estar logado para completar a ação', {
+      toast.error('Você precisa estar logado', {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,
         draggable: false,
-        progress: undefined,
         theme: "colored",
-
-      }); navigate("/login")
-
+        progress: undefined,
+      });
+      navigate("/login")
     }
   }, [token])
 
-  async function curtidas(id: number) {
-    await put(`/postagem/curtir/${id}`, post, setPost, {
-      headers: {
-        'Authorization': token
-      }
-    }
-    );
-    getPost()
-  }
-
   async function getPost() {
-    await busca("/postagem", setPosts, {
+    await busca("/postagem", setPost, {
       headers: {
         'Authorization': token
       }
@@ -118,10 +95,7 @@ function ListaPostagem() {
                     </Button>
                   </Box>
                 </Link>
-                <Box mx={1}>
-                  <Button onClick={() => { curtidas(post.id) }} ><ThumbUpIcon color='primary'></ThumbUpIcon></Button>
-                  <Typography style={{ color: 'black' }} align='center' variant="body2" component="p"> {post.curtir}</Typography>
-                </Box>
+
               </Box>
             </CardActions>
 
