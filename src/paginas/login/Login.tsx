@@ -108,13 +108,13 @@ function Login() {
 
     // grid da imagem da esquerda
     <Grid container className='gridMaiorLogin'>
-      <Grid className='grid1Login' xs={12}>
+      <Grid item xs={6} className="gridInputs">
+        <img src="https://i.imgur.com/9raJyoH.png" className='imagemGraph' alt="" />
         <Box className='BoxForm'>
+
           <form onSubmit={logar}>
-            <Typography className='textoLogin'
-            >Entrar</Typography>
-            <TextField placeholder='Digite o seu e-mail' value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
-            <TextField placeholder='Digite o sua senha' value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
+            <TextField placeholder='Digite o seu e-mail' value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='Usuário' variant='outlined' name='usuario' margin='normal' fullWidth className='CaixaInput' />
+            <TextField placeholder='Digite o sua senha' value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth className='CaixaInput' />
             {/* box do botao */}
             <Box textAlign='center' >
               <Button className='botaoLogar' type='submit' variant='contained'>
@@ -122,13 +122,17 @@ function Login() {
               </Button>
             </Box>
           </form>
-          <Box marginTop={2} >
-            <Typography className='textoSemConta'>Não tem uma conta?</Typography>
+
+          <Box marginTop={12} >
+            <Typography align='left' className='textoCadastro'>Não tem uma conta?</Typography>
+            <Link to='/cadastro' className='text-decorator-none'>
+              <Button className='botaoCadastro' type='submit' variant='contained'>Cadastre-se</Button>
+            </Link>
           </Box>
-          <Link to='/cadastro' className='text-decorator-nome'>
-            <Typography align='center' className='textoCadastro' style={{ fontWeight: 'bold' }}>Cadastre-se</Typography>
-          </Link>
         </Box>
+      </Grid>
+      <Grid item xs={6} className="gridImagem" >
+        <img src="https://i.imgur.com/a4Oaalj.png" alt="gif graphome" />
       </Grid>
     </Grid>
   )
