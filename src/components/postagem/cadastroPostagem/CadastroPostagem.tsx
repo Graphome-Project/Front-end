@@ -151,7 +151,7 @@ function CadastroPost() {
   }
 
   function back() {
-    navigate('/postagem')
+    navigate('/feed')
   }
   return (
     <Container className="GridContainer">

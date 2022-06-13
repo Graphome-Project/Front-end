@@ -78,7 +78,7 @@ function ListaPostagem() {
         <Box m={2} >
           <Card variant="outlined">
             <CardContent>
-
+              <img src={post.midia} alt="" width='500px' height='500px' />
               <Typography color="textSecondary" gutterBottom>
                 Postagens
               </Typography>
