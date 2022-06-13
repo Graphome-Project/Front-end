@@ -18,6 +18,7 @@ import ListaPostagem from './components/postagem/listaPostagem/ListaPostagem';
 import FeedPostagem from './paginas/Feed/FeedPostagem';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AtualizarUsuario from './components/usuarios/atualizarUsuario/AtualizarUsuario';
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
             <Route path="/formulariopostagem/:id" element={<CadastroPostagem />} />
             <Route path="/deletarpostagem/:id" element={<DeletarPostagem />} />
             <Route path='/feed' element={<FeedPostagem />} />
+            <Route path='/atualizarusuario' element={<AtualizarUsuario />} />
           </Routes>
         </div>
         <Footer />
