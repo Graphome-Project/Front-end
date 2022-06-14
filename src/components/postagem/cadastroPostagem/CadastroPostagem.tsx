@@ -18,7 +18,16 @@ function CadastroPost() {
   );
   useEffect(() => {
     if (token == "") {
-      alert('Você precisa estar logado');
+      toast.error('Você precisa estar logado!', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "colored",
+      });
       navigate("/login")
 
     }
@@ -158,11 +167,23 @@ function CadastroPost() {
       <form onSubmit={onSubmit} className='Forms'>
         <Box className='BoxPositionForm'>
           <Box className='BoxInputs'>
-            <TextField value={postagem.titulo} className='inputTitle' onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="title" variant="outlined" name="titulo" margin="normal" />
-            <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="description" name="texto" variant="outlined" margin="normal" className='inputTitle' />
+            <TextField value={postagem.titulo} className='inputTitle' onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="Título" variant="outlined" name="titulo" margin="normal" placeholder='Insira aqui o título da sua postagem' />
+            <TextField value={postagem.midia} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="midia" label="Mídia" name="midia" variant="outlined" margin="normal" className='inputTitle' placeholder='Insira aqui o link da imagem' />
           </Box>
           <Box className='BoxMidia'>
-            <TextField value={postagem.midia} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="midia" label="text" name="midia" variant="outlined" margin="normal" className='inputTextArea' />
+            <TextField
+              value={postagem.texto}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)}
+              id="texto"
+              name="texto"
+              label="Texto"
+              placeholder='Insira aqui o conteúdo da sua postagem'
+              variant="outlined"
+              multiline
+              margin="normal"
+              rows={10}
+              className='inputTextArea'
+            />
           </Box>
 
 
