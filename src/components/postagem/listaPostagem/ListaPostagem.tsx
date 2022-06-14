@@ -73,19 +73,18 @@ function ListaPostagem() {
 
   return (
 
-    <>
+    <Box className='testando'>
       {posts.map(post => (
-        <Box m={2} >
+        <Box m={2}>
           <Card variant="outlined">
             <CardContent>
-              <img src={post.midia} alt="" width='500px' height='500px' />
-              <Typography color="textSecondary" gutterBottom>
-                Postagens
-              </Typography>
+
 
               <Typography variant="h5" component="h2">
                 {post.titulo}
               </Typography>
+
+              <img src={post.midia} alt="" className='imgPostagem' />
 
               <Typography variant="body2" component="p">
                 {post.texto}
@@ -128,7 +127,7 @@ function ListaPostagem() {
           </Card>
         </Box>
       ))}
-    </>
+    </Box>
   )
 }
 
