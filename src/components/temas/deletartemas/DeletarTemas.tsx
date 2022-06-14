@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import {Box, Card, CardActions, CardContent, Button, Typography} from '@material-ui/core';
+import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import Temas from '../../../models/Temas';
 import { buscaId, deleteId } from '../../../services/Service';
 import './DeletarTemas.css'
+import { toast } from 'react-toastify';
 
 
 function DeletarTemas() {
@@ -21,7 +22,7 @@ function DeletarTemas() {
     const [temas, setTemas] = useState<Temas>()
 
     useEffect(() => {
-        if (token === '') { 
+        if (token === '') {
             navigate('/login')
         }
     }, [token])
@@ -45,15 +46,33 @@ function DeletarTemas() {
         navigate('/temas')
 
         try {
-            
+
             deleteId(`/temas/${id}`, {
                 headers: {
                     'Authorization': token
                 }
             });
-            alert('Tema deletado com sucesso')
+            toast.error('Tema deletado com sucesso', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "colored",
+            });
         } catch (error) {
-            alert('Erro ao deletar o Tema');
+            toast.error('Erro ao deletar o Tema', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "colored",
+            });
         }
 
     }

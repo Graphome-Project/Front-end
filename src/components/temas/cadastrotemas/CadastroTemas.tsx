@@ -6,6 +6,7 @@ import Temas from '../../../models/Temas';
 import { buscaId, post, put } from '../../../services/Service'
 import { useSelector } from 'react-redux'
 import { TokenState } from '../../../store/tokens/tokensReducer'
+import { toast } from 'react-toastify';
 // import { toast } from 'react-toastify'
 function CadastroTemas() {
   let history = useNavigate()
@@ -25,7 +26,16 @@ function CadastroTemas() {
   //Hook para verificar se o usuário está logado
   useEffect(() => {
     if (token === "") {
-      alert('Você precisa estar logado para completar a ação');
+      toast.error('Você precisa estar logado! ', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "colored",
+      });
       history("/login")
     }
   }, [token])
@@ -67,11 +77,28 @@ function CadastroTemas() {
             'Authorization': token
           }
         })
-        alert('Tema atualizado com sucesso');
+        toast.success('Tema atualizado com sucesso! ', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "colored",
+        });
       } catch (error) {// CATCH: Caso tenha algum erro, pegue esse erro e mande uma msg para o usuário
         console.log(`Error:${error}`);
-
-        alert('Erro na atualização do tema, verifique os campos e tente novamente.');
+        toast.error('Erro na atualização do tema, verifique os campos e tente novamente.', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "colored",
+        });
       }
     } else { // Se o ID for indefinido, tente Cadastrar
       // TRY: Tenta executar o cadastro
@@ -81,10 +108,28 @@ function CadastroTemas() {
             'Authorization': token
           }
         })
-        alert('Tema criado com sucesso');
+        toast.error('Tema criado com sucesso! ', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "colored",
+        });
       } catch (error) {// CATCH: Caso tenha algum erro, pegue esse erro e mande uma msg para o usuário
         console.log(`Error: ${error}`)
-        alert('Erro na criação do tema,verifique os campos e tente novamente.');
+        toast.error('Erro na criação do tema,verifique os campos e tente novamente.', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "colored",
+        });
       }
     }
     back()
