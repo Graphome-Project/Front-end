@@ -11,7 +11,15 @@ function Home() {
 
 
       <Grid className='homePrincipal '>
-        <Grid item xs={3} className="fundoHome"></Grid>
+        {/* <Grid item xs={3} className="fundoHome"></Grid> */}
+
+        <Grid item xs={1} className='home-faixa'>
+          <Box className="faixa-colorido"></Box>
+          {/* <img src='https://i.pinimg.com/originals/dd/56/b4/dd56b44be4cbaa4683a920904d071b6a.png' width='100px'/> */}
+          <img src='https://cdn-icons-png.flaticon.com/512/64/64981.png' className='img-faixa'/>
+          
+        </Grid>
+
 
         <Grid item xs={9}>
 
@@ -23,9 +31,9 @@ function Home() {
               O intuito é fornecer um espaço voltado para organizar, construir e executar ideias e por fim, incentivar e inspirar pessoas com os resultados apresentados.</h4>
             <div className='botao-Home'>
               <Link to='/login'>
-              <Typography align='left' className='textoCadastro'>
-               clique aqui para começar!
-              </Typography>
+                <Typography align='left' className='home-textoCadastro'>
+                  clique aqui para começar!
+                </Typography>
               </Link>
             </div>
           </div>
