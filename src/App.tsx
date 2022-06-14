@@ -45,12 +45,11 @@ function App() {
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/temas" element={<ListaTemas />} />
-            <Route path="/postagem" element={<ListaPostagem />} />
+
             <Route path="/formularioTema" element={<CadastroTemas />} />
             <Route path="/formularioTema/:id" element={<CadastroTemas />} />
             <Route path="/deletarTema/:id" element={<DeletarTemas />} />
-            <Route path="/formulariopostagem" element={<CadastroPostagem />} />
-            <Route path="/formulariopostagem/:id" element={<CadastroPostagem />} />
+
             <Route path="/deletarpostagem/:id" element={<DeletarPostagem />} />
             <Route path='/feed' element={<FeedPostagem />} />
             <Route path='/atualizarusuario' element={<AtualizarUsuario />} />
