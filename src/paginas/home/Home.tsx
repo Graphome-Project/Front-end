@@ -11,9 +11,9 @@ function Home() {
 
 
       <Grid className='homePrincipal '>
-        <Grid item xs={4} className="fundoHome"></Grid>
+        <Grid item xs={3} className="fundoHome"></Grid>
 
-        <Grid item xs={8}>
+        <Grid item xs={9}>
 
           <div className="conteudo-direita">
 
@@ -22,11 +22,10 @@ function Home() {
             <h4 className="texto-Home">Uma rede social para compartilhar projetos de arquitetura colaborativo entre comunidade e profissionais, voltado para a reforma da paisagem urbana através de intervenção artística e gráfica com o objetivo de construir assentamentos urbanos mais agradáveis e seguros.
               O intuito é fornecer um espaço voltado para organizar, construir e executar ideias e por fim, incentivar e inspirar pessoas com os resultados apresentados.</h4>
             <div className='botao-Home'>
-              <Link to='/cadastro'>
-              <Button variant="outlined" className="botaoHome1"> FAZER CADASTRO </Button>
-              </Link>
               <Link to='/login'>
-              <Button variant="outlined" className="botaoHome2"> LOGIN </Button>
+              <Typography align='left' className='textoCadastro'>
+               clique aqui para começar!
+              </Typography>
               </Link>
             </div>
           </div>
