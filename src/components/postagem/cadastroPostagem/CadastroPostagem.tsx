@@ -158,16 +158,19 @@ function CadastroPost() {
       <form onSubmit={onSubmit} className='Forms'>
         <Box className='BoxPositionForm'>
           <Box className='BoxInputs'>
-            <input type='text' name='titulo' className='inputTitle' placeholder='Titulo' value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id='titulo' />
-            <input type='text' name='midia' className='inputTitle' value={postagem.midia} placeholder='Link da Imagem' id='midia' onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} />
+            <TextField value={postagem.titulo} className='inputTitle' onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="title" variant="outlined" name="titulo" margin="normal" />
+            <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="description" name="texto" variant="outlined" margin="normal" className='inputTitle' />
+          </Box>
+          <Box className='BoxMidia'>
+            <TextField value={postagem.midia} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="midia" label="text" name="midia" variant="outlined" margin="normal" className='inputTextArea' />
           </Box>
 
-          <textarea placeholder='Texto da postagem' name="texto" id="texto" className='inputTextArea' cols={5} rows={5}></textarea>
+
         </Box>
-        <FormControl >
+        <FormControl className='selectTema' >
           <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
           <Select
-            className='selectTema'
+
             labelId="demo-simple-select-helper-label"
             id="demo-simple-select-helper"
             onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
