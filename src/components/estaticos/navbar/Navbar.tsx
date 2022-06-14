@@ -111,13 +111,6 @@ function Navbar() {
                                     </Typography>
                                 </Box>
                             </Link></MenuItem>
-                            <MenuItem onClick={handleClose}> <Link to='/postagem' className='text-decorator-none'>
-                                <Box mx={1} className='cursor'>
-                                    <Typography variant="h6" color="inherit">
-                                        Postagens
-                                    </Typography>
-                                </Box>
-                            </Link></MenuItem>
                             <MenuItem onClick={handleClose}><Link to='/temas' className='text-decorator-none'>
                                 <Box mx={1} className='cursor'>
                                     <Typography variant="h6" color="inherit">
