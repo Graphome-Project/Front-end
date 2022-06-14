@@ -1,9 +1,9 @@
 import React from 'react'
 import "./Footer.css"
-import { Box, Typography, Grid } from '@material-ui/core'
+import { Box, Typography, Grid, Button } from '@material-ui/core'
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 
@@ -11,30 +11,45 @@ function Footer() {
   return (
     <>
 
-        <Grid alignItems="center" item xs={12} className='footer'>
+      <Grid item xs={12} className='footer'>
 
-          <Box className='rodape'>
+        <Typography className='footer-texto-principal'>GRAPHOME</Typography>
 
-            <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-              <Typography align="center" gutterBottom className='textoFooter'>Siga a GrapHome</Typography>
-            </Box>
+        <Box className='footer-menus'>
+          <Typography className='footer-texto-secundario'>Inicio</Typography>
+          <Typography className='footer-texto'>
+            <a href='/home'>Home</a>
+            <a href='/cadastro'>Cadastro</a>
+            <a href='/Login'>Login</a>
+          </Typography>
+        </Box>
 
-            <Box display="flex" alignItems="center" justifyContent="center">
-              <a href="https://www.facebook.com/jonathasouzabrasil/" target="_blank">
-                <FacebookIcon className='icone' />
-              </a>
-              <a href="https://www.instagram.com/_jonathanbrasil/" target="_blank">
-                <InstagramIcon className='icone' />
-              </a>
-              <a href="https://www.linkedin.com/in/jonathanbrasil" target="_blank">
-                <LinkedInIcon className='icone' />
-              </a>
-            </Box>
+        <Box className='footer-menus'>
+          <Typography className='footer-texto-secundario'>Sobre Nós</Typography>
+          <Typography className='footer-texto'>
+            <a href='/sobre#gh-sobre'>O que é a Graphome</a>
+            <a href='/sobre#sobre-devs'>Conheça os devs</a>
+            <a href='/sobre#sobre-contato'>Fale conosco</a>
+          </Typography>
+        </Box>
 
+        <Box className='footer-redes'>
+          <Typography align="center" gutterBottom className='textoFooter'>Siga a GrapHome</Typography>
+          <Box className='footer-redes-icones'>
+            <a href="https://github.com/Graphome-Project" target="_blank">
+              <FacebookIcon className='icone' />
+            </a>
+            <a href="https://github.com/Graphome-Project" target="_blank">
+              <InstagramIcon className='icone' />
+            </a>
+            <a href="https://github.com/Graphome-Project" target="_blank">
+              <GitHubIcon className='icone' />
+            </a>
           </Box>
+        </Box>
 
 
-        </Grid>
+      </Grid>
 
     </>
   )
