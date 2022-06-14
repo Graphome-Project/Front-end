@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { Box, Button, Card, CardActions, CardContent, Typography } from '@material-ui/core'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
@@ -8,14 +8,17 @@ import { useSelector } from 'react-redux'
 import { TokenState } from '../../../store/tokens/tokensReducer';
 
 import Postagem from '../../../models/Postagem'
-import { busca, put } from '../../../services/Service'
+import { put } from '../../../services/Service'
 import { toast } from 'react-toastify';
 import './ListaPostagem.css'
 
-function ListaPostagem() {
 
-  const [posts, setPosts] = useState<Postagem[]>([])
 
+interface Props {
+  getPost: () => void,
+  posts: Postagem[]
+}
+const ListaPostagem: FC<Props> = ({ getPost, posts }): JSX.Element => {
   const [post, setPost] = useState<Postagem>({
     id: 0,
     titulo: "",
@@ -32,23 +35,6 @@ function ListaPostagem() {
 
   let navigate = useNavigate();
 
-  useEffect(() => {
-    if (token === "") {
-      toast.error('Você precisa estar logado para completar a ação', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: false,
-        progress: undefined,
-        theme: "colored",
-
-      }); navigate("/login")
-
-    }
-  }, [token])
-
   async function curtidas(id: number) {
     await put(`/postagem/curtir/${id}`, post, setPost, {
       headers: {
@@ -58,19 +44,6 @@ function ListaPostagem() {
     );
     getPost()
   }
-
-  async function getPost() {
-    await busca("/postagem", setPosts, {
-      headers: {
-        'Authorization': token
-      }
-    })
-  }
-
-  useEffect(() => {
-    getPost()
-  }, [posts.length])
-
   return (
 
     <Box className='testando'>
@@ -78,8 +51,6 @@ function ListaPostagem() {
         <Box m={2}>
           <Card variant="outlined">
             <CardContent>
-
-
               <Typography variant="h5" component="h2">
                 {post.titulo}
               </Typography>
@@ -131,4 +102,4 @@ function ListaPostagem() {
   )
 }
 
-export default ListaPostagem
+export default ListaPostagem;

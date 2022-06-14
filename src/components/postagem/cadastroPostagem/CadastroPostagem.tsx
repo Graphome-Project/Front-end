@@ -1,5 +1,5 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
-import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText, Box } from "@material-ui/core"
+import React, { ChangeEvent, FC, useEffect, useState } from 'react'
+import { Container, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText, Box } from "@material-ui/core"
 import './CadastroPostagem.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import Temas from '../../../models/Temas';
@@ -9,29 +9,20 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
 
-function CadastroPost() {
+
+interface Props {
+  setPosts: (value: Postagem[]) => void,
+  posts: Postagem[]
+}
+
+const CadastroPostagem: FC<Props> = ({ setPosts, posts }): JSX.Element => {
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const [temas, setTemas] = useState<Temas[]>([])
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
   );
-  useEffect(() => {
-    if (token == "") {
-      toast.error('Você precisa estar logado!', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: false,
-        progress: undefined,
-        theme: "colored",
-      });
-      navigate("/login")
 
-    }
-  }, [token])
 
   const [tema, setTema] = useState<Temas>(
     {
@@ -110,6 +101,7 @@ function CadastroPost() {
           theme: "colored",
 
         });
+
       } catch (error) {
         console.log(`Erro: ${error}`);
         toast.error('Ocorreu algum erro ao atualizar a postagem, verifique os campos e tente novamente! ', {
@@ -141,6 +133,7 @@ function CadastroPost() {
           theme: "colored",
 
         });
+        setPosts([...posts, postagem])
       } catch (error) {
         console.log(`Error: ${error}`);
         toast.error('Ocorreu algum erro ao criar uma postagem, verifique os campos e tente novamente! ', {
@@ -214,4 +207,6 @@ function CadastroPost() {
     </Container>
   )
 }
-export default CadastroPost;
+
+export default CadastroPostagem;
+
