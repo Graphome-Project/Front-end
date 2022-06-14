@@ -8,6 +8,7 @@ import { buscaId } from '../../services/Service'
 
 import './Perfil.css'
 import { TokenState } from '../../store/tokens/tokensReducer'
+import { toast } from 'react-toastify'
 
 function Perfil() {
 
@@ -37,7 +38,16 @@ function Perfil() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado")
+      toast.error('Você precisa estar logado!', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "colored",
+      });
       history("/login")
     }
   }, [token])
@@ -80,6 +90,7 @@ function Perfil() {
       <h4 className='h4Bio'>Bio:</h4>
       <p className='card-container-texto'>
         {user.bio}
+        tipo: {user.tipo}
       </p>
     </Box>
   )

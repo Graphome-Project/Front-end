@@ -32,7 +32,7 @@ function AtualizarUsuario() {
 
   useEffect(() => {
     if (token === "") {
-      //alert("Você precisa estar logado")
+
       toast.error('Você precisa estar logado', {
         position: "top-right",
         autoClose: 2000,
@@ -89,7 +89,7 @@ function AtualizarUsuario() {
             'Authorization': token
           }
         })
-        //alert('Usuário atualizado com sucesso!');
+
         toast.success('Usuario atualizado com sucesso', {
           position: "top-right",
           autoClose: 2000,
@@ -102,7 +102,7 @@ function AtualizarUsuario() {
         });
       }
     } else {
-      //alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+
       toast.error('Dados inconsistentes. Favor verificar as informações de cadastro.', {
         position: "top-right",
         autoClose: 2000,
