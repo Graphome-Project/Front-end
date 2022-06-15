@@ -67,7 +67,6 @@ function CadastroTemas() {
   //Criando a funçãoque fara toda a verificação se o id é diferente de indefinido e também atualizar o tema ou criar um novo tema caso o id seja indefinido
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault()
-
     // se o id for diferente de undefined tente atualizar
     if (id !== undefined) {
       // TRY: Tenta executar a atualização
