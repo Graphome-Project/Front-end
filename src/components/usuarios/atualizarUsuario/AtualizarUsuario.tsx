@@ -134,11 +134,11 @@ function AtualizarUsuario() {
         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id='confirmarSenha' label='confirmarSenha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
         <TextField value={user.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedUsuario(e)} id="foto" label="foto" variant="outlined" name="foto" margin="normal" fullWidth />
         <Link to='/feed' className='text-decorator-none'>
-          <Button variant='contained' color='secondary' className='btnCancelar'>
+          <Button variant='outlined' color='secondary' className='btnCancelar'>
             Cancelar
           </Button>
         </Link>
-        <Button type="submit" variant="contained" color="primary">
+        <Button type="submit" variant="outlined" style={{ marginLeft: '10px' }}>
           Finalizar
         </Button>
       </form>
