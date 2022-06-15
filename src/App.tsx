@@ -20,6 +20,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AtualizarUsuario from './components/usuarios/atualizarUsuario/AtualizarUsuario';
 import Perfil from './paginas/perfil/Perfil';
+import EditPerfil from './components/atualizarperfil/EditPerfil';
 
 function App() {
   return (
@@ -52,7 +53,7 @@ function App() {
 
             <Route path="/deletarpostagem/:id" element={<DeletarPostagem />} />
             <Route path='/feed' element={<FeedPostagem />} />
-            <Route path='/atualizarusuario' element={<AtualizarUsuario />} />
+            <Route path='/atualizarusuario' element={<EditPerfil />} />
             <Route path='/perfil' element={<Perfil />} />
           </Routes>
         </div>

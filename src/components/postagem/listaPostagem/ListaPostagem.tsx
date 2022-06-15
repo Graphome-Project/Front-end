@@ -6,7 +6,8 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
 import { TokenState } from '../../../store/tokens/tokensReducer';
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
 import Postagem from '../../../models/Postagem'
 import { put } from '../../../services/Service'
 import { toast } from 'react-toastify';
@@ -48,34 +49,54 @@ const ListaPostagem: FC<Props> = ({ getPost, posts }): JSX.Element => {
 
     <Box className='testando'>
       {posts.map(post => (
-        <Box m={2}>
+
+
+        <Box m={2} >
           <Card variant="outlined">
-            <CardContent>
-              <Typography variant="h5" component="h2">
-                {post.titulo}
-              </Typography>
 
-              <img src={post.midia} alt="" className='imgPostagem' />
+            <CardContent className='conteudo-card'>
 
-              <Typography variant="body2" component="p">
-                {post.texto}
-              </Typography>
 
-              <Typography variant="body2" component="p">
-                {post.tema?.descricao}
-              </Typography>
 
-              <Typography variant='body2' component='p'>
-                {post.data.split("-").reverse().join("-")}
-              </Typography>
+              <Box className='box-tema'>
+                <Typography variant="body2" component="p">
+                  <h5>TEMA: </h5>{post.tema?.descricao}
+                </Typography>
+                <Typography variant='body2' component='p'>
+                  <h5>Ultima atualização: </h5>{post.data.split("-").reverse().join("-")}
+                </Typography>
+              </Box>
+
+              <Box className='linha-postagem'>
+
+                <Box className='coluna-postagem'>
+
+                  <Typography variant="h5" component="h2">
+                    {post.titulo}
+                  </Typography>
+
+                  <Typography variant="body2" component="p">
+                    {post.texto}
+                  </Typography>
+
+                  
+
+                </Box>
+
+                <img src={post.midia} alt="" className='imgPostagem' />
+
+              </Box>
+
+
+
             </CardContent>
 
-            <CardActions>
+            <CardActions className='botoes-card'>
               <Box display="flex" justifyContent="center" mb={1.5}>
 
                 <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
                   <Box mx={1}>
-                    <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                    <Button variant="outlined" className="marginLeft" size='small'>
                       Atualizar
                     </Button>
                   </Box>
@@ -83,7 +104,7 @@ const ListaPostagem: FC<Props> = ({ getPost, posts }): JSX.Element => {
 
                 <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
                   <Box mx={1}>
-                    <Button variant="contained" size='small' color="secondary">
+                    <Button variant="outlined" size='small' startIcon={<DeleteIcon />}>
                       Deletar
                     </Button>
                   </Box>
