@@ -1,61 +1,71 @@
-/* importando fonte */
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
-
 /* é o maior grid por tras do grid de login */
 .gridMaiorLogin {
+
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url('https://i.imgur.com/fhxWLFt.png');
-  height: calc(100vh - 108px - 108px);
 }
 
-/* é o grid da caixa de login */
-.grid1Login {
+.imagemGraph {
+  margin-bottom: 80px;
+  margin-top: 80px;
+  width: 300px;
+  border:rgba(255, 255, 255, 0) solid 5px; 
+}
+
+/* AÇÃO NA LOGO QUANDO PASSA O MOUSE */
+.imagemGraph:hover {
+  width: 305px;
+  height: 142.5px;
+}
+
+.gridInputs {
+  background-color: var(--light-grey);
   display: flex;
+  justify-content: flex-start;
   align-items: center;
+  flex-direction: column;
+}
+
+.gridImagem {
   justify-content: center;
+  background-color: #252525;
+
+  background-image: url(https://i.imgur.com/XeYi1SS.gif);
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
 }
 
-/* estilizando textos */
-.textoLogin {
-  color: #000;
-  text-align: center;
-  font-family: 'Amatic SC', cursive !important;
-  font-size: 40px !important;
-}
 
-.textoSemConta {
-  color: #000;
-  text-align: center;
-  font-family: 'Amatic SC', cursive !important;
-  font-size: 30px !important;
-}
 
-.textoCadastro {
-  color: #000;
-  text-align: center;
-  font-family: 'Amatic SC', cursive !important;
-  font-size: 25px !important;
-  font-weight: bold;
-}
-
-/* estilizando caixa de texto do usuario */
-.BoxForm {
-  background: #ffffff;
-  border-radius: 10px;
-  border: 2px solid #f3f354;
-  padding: 25px;
-
-}
-
-/* tirar sublinhado do botao logar */
-.text-decorator-nome {
-  text-decoration: none;
+.CaixaInput {
+  background-color: #fff;
+  border-radius: 5px;
 }
 
 .botaoLogar {
-  background-color: #f3f354 !important;
-  font-family: 'Amatic SC', cursive !important;
-  color: #000 !important;
+  width: 233px;
+  height: 38px;
+  margin-top: 30px !important;
+  background-color: #7dbd9a !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 14px !important;
+  color: #fff !important;
+}
+
+.botaoCadastro {
+  width: 427px;
+  height: 38px;
+  margin-top: 5px !important;
+  background-color: #576574 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 13px !important;
+}
+
+.text-decorator-none {
+  text-decoration: none;
+}
+
+.textoCadastro {
+  color: #dd3052;
 }

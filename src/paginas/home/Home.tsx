@@ -4,35 +4,42 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 function Home() {
   return (
+
+
+
     <>
-      <Grid container className='gridmaior'>
-        <Grid item xs={6} className='grid1'>
-          <Box className='box1'>
-            <Box>
-              <Typography className='texto' gutterBottom >Ver postagens</Typography>
-              <Typography gutterBottom className='texto' >Criar postagem</Typography>
-              <Typography gutterBottom className='texto' >Criar tema</Typography>
-              <Link to='/login' className='text-decorator-none'><Typography gutterBottom className='texto' >Logar</Typography></Link>
-              <Typography gutterBottom className='texto' >Cadastrar</Typography>
-            </Box>
-          </Box>
+
+
+      <Grid className='homePrincipal '>
+        {/* <Grid item xs={3} className="fundoHome"></Grid> */}
+
+        <Grid item xs={1} className='home-faixa'>
+          <Box className="faixa-colorido"></Box>
+          {/* <img src='https://i.pinimg.com/originals/dd/56/b4/dd56b44be4cbaa4683a920904d071b6a.png' width='100px'/> */}
+          <img src='https://cdn-icons-png.flaticon.com/512/64/64981.png' className='img-faixa' />
 
         </Grid>
-        <Grid item xs={6}>
-          <img src="https://i.imgur.com/7g7YSsV.png" alt=" logo graphome" width='700px' height='700px' />
-        </Grid>
-      </Grid>
-      <Grid container className='gridmaior'>
-        <Grid item xs={6} className='grid1'>
-          <Box className='box1'>
-            <Box>
-              <Typography gutterBottom className='texto' >Segundo grid é aqui para conteudo</Typography>
-            </Box>
-          </Box>
 
-        </Grid>
-        <Grid item xs={6}>
-          <Typography gutterBottom className='texto' >Segundo grid é aqui para conteudo</Typography>
+
+        <Grid item xs={9}>
+
+          <div className="conteudo-direita">
+
+            <h1 className="titulo-Home">PINTOU MUDANÇA!</h1>
+
+            <h4 className="texto-Home">
+              Trazendo mais vida nas comunidades, a Graphome vai muito além de uma rede social, focado não somente em cores, mas também na mudança da paisagem e da vida das pessoas através da arte. Compartilhe fotos, trabalhos, cursos, projetos sociais e muito mais!
+              Que sua comunidade não seja citada somente por noticias ruins, e sim por sua beleza e união.
+            </h4>
+            <div className='botao-Home'>
+              <Link to='/login'>
+                <Typography align='left' className='home-textoCadastro'>
+                  clique aqui para começar!
+                </Typography>
+              </Link>
+            </div>
+          </div>
+
         </Grid>
       </Grid>
     </>

@@ -15,7 +15,7 @@ function Cards() {
 
                         <div className="icons">
 
-                            <a href="https://www.facebook.com/jonathasouzabrasil/" target="_blank">
+                            <a href="https://www.instagram.com/biawhetumori/" target="_blank">
                                 <InstagramIcon className='icone' />
                             </a>
                             <a href="https://github.com/BiaWhetumori" target="_blank">
@@ -108,7 +108,7 @@ function Cards() {
                         <h2 className="cardTitulo">Viviane Emelie</h2>
 
                         <div className="icons">
-                            <a href="https://www.facebook.com/jonathasouzabrasil/" target="_blank">
+                            <a href="https://www.instagram.com/vivian_emilie2/" target="_blank">
                                 <InstagramIcon className='icone' />
                             </a>
                             <a href="https://github.com/vivi29-emi" target="_blank">

@@ -1,5 +1,5 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
-import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core"
+import React, { ChangeEvent, FC, useEffect, useState } from 'react'
+import { Container, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText, Box } from "@material-ui/core"
 import './CadastroPostagem.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import Temas from '../../../models/Temas';
@@ -9,20 +9,20 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
 
-function CadastroPost() {
+
+interface Props {
+  setPosts: (value: Postagem[]) => void,
+  posts: Postagem[]
+}
+
+const CadastroPostagem: FC<Props> = ({ setPosts, posts }): JSX.Element => {
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const [temas, setTemas] = useState<Temas[]>([])
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
   );
-  useEffect(() => {
-    if (token == "") {
-      alert('Você precisa estar logado');
-      navigate("/login")
 
-    }
-  }, [token])
 
   const [tema, setTema] = useState<Temas>(
     {
@@ -101,6 +101,7 @@ function CadastroPost() {
           theme: "colored",
 
         });
+
       } catch (error) {
         console.log(`Erro: ${error}`);
         toast.error('Ocorreu algum erro ao atualizar a postagem, verifique os campos e tente novamente! ', {
@@ -132,6 +133,7 @@ function CadastroPost() {
           theme: "colored",
 
         });
+        setPosts([...posts, postagem])
       } catch (error) {
         console.log(`Error: ${error}`);
         toast.error('Ocorreu algum erro ao criar uma postagem, verifique os campos e tente novamente! ', {
@@ -151,19 +153,38 @@ function CadastroPost() {
   }
 
   function back() {
-    navigate('/postagem')
+    navigate('/feed')
   }
-
   return (
-    <Container maxWidth="sm" className="topo">
-      <form onSubmit={onSubmit}>
-        <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
-        <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
-        <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
+    <Container className="GridContainer">
+      <form onSubmit={onSubmit} className='Forms'>
+        <Box className='BoxPositionForm'>
+          <Box className='BoxInputs'>
+            <TextField value={postagem.titulo} className='inputTitle' onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="Título" variant="outlined" name="titulo" margin="normal" placeholder='Insira aqui o título da sua postagem' />
+            <TextField value={postagem.midia} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="midia" label="Mídia" name="midia" variant="outlined" margin="normal" className='inputTitle' placeholder='Insira aqui o link da imagem' />
+          </Box>
+          <Box className='BoxMidia'>
+            <TextField
+              value={postagem.texto}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)}
+              id="texto"
+              name="texto"
+              label="Texto"
+              placeholder='Insira aqui o conteúdo da sua postagem'
+              variant="outlined"
+              multiline
+              margin="normal"
+              rows={10}
+              className='inputTextArea'
+            />
+          </Box>
 
-        <FormControl >
+
+        </Box>
+        <FormControl className='selectTema' >
           <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
           <Select
+
             labelId="demo-simple-select-helper-label"
             id="demo-simple-select-helper"
             onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
@@ -173,17 +194,19 @@ function CadastroPost() {
             })}>
             {
               temas.map(tema => (
-                <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
+                <MenuItem value={tema.id}>{tema.nome}</MenuItem>
               ))
             }
           </Select>
           <FormHelperText>Escolha um tema para a postagem</FormHelperText>
-          <Button type="submit" variant="contained" color="primary">
-            Finalizar
+          <Button type="submit" variant="contained" color="primary" className='BotaoForm'>
+            <span className="button-content"> Criar postagem</span>
           </Button>
         </FormControl>
       </form>
     </Container>
   )
 }
-export default CadastroPost;
+
+export default CadastroPostagem;
+

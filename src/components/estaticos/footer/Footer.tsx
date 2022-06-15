@@ -1,51 +1,58 @@
-import React from "react";
+import React from 'react'
+import "./Footer.css"
+import { Box, Typography, Grid, Button } from '@material-ui/core'
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import {Link} from 'react-router-dom';
-import { Typography, Box, Grid } from '@material-ui/core';
-import './Footer.css';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function Footer() {
   return (
     <>
-      <Grid className='container-principal'>
-        <Grid className="grid-footer" item xs={12}>
-          <Box className="textos">
-            <Typography variant="h4" align="left" gutterBottom > GrapHome </Typography>
-            <ul>
-              <li className="list-decorator-none">Sobre</li>
-              <li className='list-decorator-none'>Desenvolvedores</li>
-            </ul>
+
+      <Grid item xs={12} className='footer'>
+
+        <Typography className='footer-texto-principal'>GRAPHOME</Typography>
+
+        <Box className='footer-menus'>
+          <Typography className='footer-texto-secundario'>Inicio</Typography>
+          <Typography className='footer-texto'>
+            <a href='/home'>Home</a>
+            <a href='/cadastro'>Cadastro</a>
+            <a href='/Login'>Login</a>
+          </Typography>
+        </Box>
+
+        <Box className='footer-menus'>
+          <Typography className='footer-texto-secundario'>Sobre Nós</Typography>
+          <Typography className='footer-texto'>
+            <a href='/sobre#gh-sobre'>O que é a Graphome</a>
+            <a href='/sobre#sobre-devs'>Conheça os devs</a>
+            <a href='/sobre#sobre-contato'>Fale conosco</a>
+          </Typography>
+        </Box>
+
+        <Box className='footer-redes'>
+          <Typography align="center" gutterBottom className='textoFooter'>Siga a GrapHome</Typography>
+          <Box className='footer-redes-icones'>
+            <a href="https://github.com/Graphome-Project" target="_blank">
+              <FacebookIcon className='icone' />
+            </a>
+            <a href="https://github.com/Graphome-Project" target="_blank">
+              <InstagramIcon className='icone' />
+            </a>
+            <a href="https://github.com/Graphome-Project" target="_blank">
+              <GitHubIcon className='icone' />
+            </a>
           </Box>
-          <Box className="textos">
-            <Typography variant="h4" align="left" gutterBottom > Linkedin </Typography>
-            <ul>
-              <li className="list-decorator-none"><Link to='/Sobre'  className="textos">Beatriz Alves</Link></li>
-              <li className="list-decorator-none"><Link to='/Sobre' className="textos">Viviane Emilie</Link></li>
-              <li className="list-decorator-none"><Link to='/Sobre' className="textos">Patryck Silva</Link></li>
-              <li className="list-decorator-none"><Link to='/Sobre' className="textos">Cipriana Luis</Link></li>
-              <li className="list-decorator-none"><Link to='/Sobre' className="textos">Jonathan</Link></li>
-              <li className="list-decorator-none"><Link to='/Sobre' className="textos"> Pedro Henrique</Link></li>
-            </ul>
-          </Box>
-        </Grid>
-        <Grid>
-        <Box>
-            <Box paddingTop={1}>
-              <Typography variant="subtitle2" align="center" gutterBottom className='textos' >© 2020 Copyright:</Typography>
-            </Box>
-            <Box>
-              <a target="_blank" href="https://brasil.generation.org">
-                <Typography variant="subtitle2" gutterBottom className='textos' align="center">graphomegen@gmail.com</Typography>
-              </a>
-            </Box>
-          </Box>
-        </Grid>
+        </Box>
+
+
       </Grid>
+
     </>
   )
 }
-
 
 export default Footer;

@@ -9,6 +9,10 @@ font-family: 'Poppins', sans-serif; */
     box-sizing: border-box;
 }
 
+.cardTitulo{
+    color: var(--laranja);
+}
+
 .sobre-devs-cards {
     display: flex;
     flex-direction: row;
@@ -27,6 +31,11 @@ font-family: 'Poppins', sans-serif; */
 }
 
 /* =========================CSS CARD ======================== */
+.iconeCards{
+    font-size: 20 !important;
+    color: var(--laranja) !important;
+}
+
 
 .border {
     height: 370px;
@@ -107,13 +116,13 @@ font-family: 'Poppins', sans-serif; */
 
 .card3 {
 
-    background: url("https://i.pinimg.com/originals/53/1b/a3/531ba3fac803b6b40b9f85fd6b5733f4.jpg") center center no-repeat;
+    background: url("https://i.imgur.com/MebxgkX.jpg") center center no-repeat;
     background-size: 300px;
 }
 
 .card3:hover {
 
-    background: url("https://i.pinimg.com/originals/53/1b/a3/531ba3fac803b6b40b9f85fd6b5733f4.jpg") left center no-repeat;
+    background: url("https://i.imgur.com/MebxgkX.jpg") left center no-repeat;
     background-size: 600px;
 }
 
@@ -151,13 +160,13 @@ font-family: 'Poppins', sans-serif; */
 
 .card5 {
 
-    background: url("https://conteudo.imguol.com.br/c/entretenimento/4e/2021/05/05/kanye-west-1620233547131_v2_3x4.jpg") center center no-repeat;
+    background: url("https://i.imgur.com/eqkpuqP.jpg") center center no-repeat;
     background-size: 300px;
 }
 
 .card5:hover {
 
-    background: url("https://conteudo.imguol.com.br/c/entretenimento/4e/2021/05/05/kanye-west-1620233547131_v2_3x4.jpg") left center no-repeat;
+    background: url("https://i.imgur.com/eqkpuqP.jpg") left center no-repeat;
     background-size: 600px;
 }
 
