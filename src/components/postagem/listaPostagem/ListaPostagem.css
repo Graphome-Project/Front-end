@@ -2,7 +2,7 @@
     text-decoration: none;
 }
 
-.imgPostagem{
+.imgPostagem {
     max-width: 500px;
     max-height: 500px;
 }
@@ -13,30 +13,30 @@
 
 }
 
-.conteudo-card{
+.conteudo-card {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     gap: 30px;
 }
 
-.linha-postagem{
+.linha-postagem {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.coluna-postagem{
+.coluna-postagem {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-.box-tema{
+.box-tema {
     display: flex;
     justify-content: space-between;
 }
 
-.botoes-card{
+.botoes-card {
     justify-content: center;
 }
