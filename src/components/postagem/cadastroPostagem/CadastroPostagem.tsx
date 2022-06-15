@@ -194,7 +194,7 @@ const CadastroPostagem: FC<Props> = ({ setPosts, posts }): JSX.Element => {
             })}>
             {
               temas.map(tema => (
-                <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
+                <MenuItem value={tema.id}>{tema.nome}</MenuItem>
               ))
             }
           </Select>
