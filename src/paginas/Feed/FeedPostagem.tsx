@@ -59,34 +59,21 @@ function FeedPostagem() {
 
     return (
         <>
-            <Grid container xs={12} className='gridContainer'>
-                <Grid xs={1} item className='MenuTemas'>
-                    <a href="" className="BotaoTema">TEMA 01</a>
-                    <a href="" className="BotaoTema">TEMA 02</a>
-                    <a href="" className="BotaoTema">TEMA 03</a>
-                    <a href="" className="BotaoTema">TEMA 04</a>
-                    <a href="" className="BotaoTema">TEMA 05</a>
-                    <a href="" className="BotaoTema">TEMA 06</a>
-                </Grid>
-                <Grid xs={8} className='gridPostagens'>
-
+            <Grid container xs={12} className='feed-principal'>
+                <Grid xs={9} className='feed-postagem'>
                     <Box marginTop={2}>
                         <CadastroPostagem setPosts={setPosts} posts={posts} />
                     </Box>
-                    <h4 className='h4FeedPosts'>Feed de postagens</h4>
+
+                    <h4 className='h4FeedPosts'>postagens</h4>
+
                     <ListaPostagem getPost={getPost} posts={posts} />
                 </Grid>
-                <Grid xs={3} className='gridPerfil'>
-                    <Box className='boxPerfil'>
-                        <Perfil />
-                    </Box>
 
-                    <Box className='boxEditarPerfil'>
-                        <Button onClick={edit} className='botaoEditarPerfil'>
-                            Editar perfil
-                        </Button>
-                    </Box>
+                <Grid xs={3}>
+                    <Perfil />
                 </Grid>
+
             </Grid>
         </>
     )
