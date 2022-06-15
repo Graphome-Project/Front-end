@@ -129,7 +129,7 @@ function Login() {
           </form>
 
           <Box marginTop={4} >
-            <Typography align='center' className='textoCadastro'>Não tem uma conta? <a href='/cadastro'>Cadastre-se</a></Typography>
+            <Typography align='center' className='textoCadastro'>Não tem uma conta? <Link to='/cadastro'>Cadastre-se</Link></Typography>
           </Box>
         </Box>
       </Grid>

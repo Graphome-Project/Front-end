@@ -1,11 +1,10 @@
 import React from 'react'
 import "./Footer.css"
-import { Box, Typography, Grid, Button } from '@material-ui/core'
+import { Box, Typography, Grid } from '@material-ui/core'
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import { useSelector } from 'react-redux';
-import { TokenState } from '../../../store/tokens/tokensReducer';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -18,18 +17,18 @@ function Footer() {
         <Box className='footer-menus'>
           <Typography className='footer-texto-secundario'>Inicio</Typography>
           <Typography className='footer-texto'>
-            <a href='/home'>Home</a>
-            <a href='/cadastro'>Cadastro</a>
-            <a href='/Login'>Login</a>
+            <Link to='/home'>Home</Link>
+            <Link to='/cadastro'>Cadastro</Link>
+            <Link to='/login'>Login</Link>
           </Typography>
         </Box>
 
         <Box className='footer-menus'>
           <Typography className='footer-texto-secundario'>Sobre Nós</Typography>
           <Typography className='footer-texto'>
-            <a href='/sobre#gh-sobre'>O que é a Graphome</a>
-            <a href='/sobre#sobre-devs'>Conheça os devs</a>
-            <a href='/sobre#sobre-contato'>Fale conosco</a>
+            <Link to='/sobre#gh-sobre'>O que é a Graphome</Link>
+            <Link to='/sobre#sobre-devs'>Conheça os devs</Link>
+            <Link to='/sobre#sobre-contato'>Fale conosco</Link>
           </Typography>
         </Box>
 
