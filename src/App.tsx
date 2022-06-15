@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Footer from './components/estaticos/footer/Footer'
 import Navbar from './components/estaticos/navbar/Navbar'
 import Home from './paginas/home/Home'
@@ -14,15 +14,17 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import CadastroPostagem from './components/postagem/cadastroPostagem/CadastroPostagem'
 import DeletarPostagem from './components/postagem/deletarPostagem/DeletarPostagem'
-import ListaPostagem from './components/postagem/listaPostagem/ListaPostagem';
+
 import FeedPostagem from './paginas/Feed/FeedPostagem';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import AtualizarUsuario from './components/usuarios/atualizarUsuario/AtualizarUsuario';
+
 import Perfil from './paginas/perfil/Perfil';
 import EditPerfil from './components/atualizarperfil/EditPerfil';
+import Postagem from './models/Postagem';
 
 function App() {
+  const [posts, setPosts] = useState<Postagem[]>([])
   return (
     <Provider store={store}>
       <ToastContainer
@@ -46,11 +48,10 @@ function App() {
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/temas" element={<ListaTemas />} />
-
             <Route path="/formularioTema" element={<CadastroTemas />} />
             <Route path="/formularioTema/:id" element={<CadastroTemas />} />
             <Route path="/deletarTema/:id" element={<DeletarTemas />} />
-
+            <Route path="/formulariopostagem/:id" element={<CadastroPostagem setPosts={setPosts} posts={posts} />} />
             <Route path="/deletarpostagem/:id" element={<DeletarPostagem />} />
             <Route path='/feed' element={<FeedPostagem />} />
             <Route path='/atualizarusuario' element={<EditPerfil />} />
