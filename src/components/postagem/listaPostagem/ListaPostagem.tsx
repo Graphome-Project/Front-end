@@ -79,7 +79,7 @@ const ListaPostagem: FC<Props> = ({ getPost, posts }): JSX.Element => {
                     {post.texto}
                   </Typography>
 
-                  
+
 
                 </Box>
 
@@ -104,13 +104,13 @@ const ListaPostagem: FC<Props> = ({ getPost, posts }): JSX.Element => {
 
                 <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
                   <Box mx={1}>
-                    <Button variant="outlined" size='small' startIcon={<DeleteIcon />}>
+                    <Button variant="outlined" color='secondary' size='small' startIcon={<DeleteIcon />}>
                       Deletar
                     </Button>
                   </Box>
                 </Link>
                 <Box mx={1}>
-                  <Button onClick={() => { curtidas(post.id) }} ><ThumbUpIcon color='primary'></ThumbUpIcon></Button>
+                  <Button onClick={() => { curtidas(post.id) }} style={{ marginTop: '-11px' }} ><ThumbUpIcon color='info'></ThumbUpIcon></Button>
                   <Typography style={{ color: 'black' }} align='center' variant="body2" component="p"> {post.curtir}</Typography>
                 </Box>
               </Box>
